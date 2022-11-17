@@ -1,6 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvAppName"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/gilroy_extra_blod"
+                android:padding="4dp"
+                android:text="CHIORE NEWS"
+                android:textColor="@color/teal"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineRegisterRight"
+                app:layout_constraintStart_toStartOf="@+id/guidelineRegisterLeft"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/logoAnimation"
+                android:layout_width="24dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvAppName"
+                app:layout_constraintStart_toEndOf="@+id/tvAppName"
+                app:layout_constraintTop_toTopOf="@+id/tvAppName"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="false"
+                app:lottie_rawRes="@raw/logo_lottie" />
+
+            <TextView
+                android:id="@+id/tvRegisterTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/gilroy_extra_blod"
+                android:text="Let's Register"
+                android:textColor="@color/teal"
+                android:textSize="36sp"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineRegisterRight"
+                app:layout_constraintStart_toEndOf="@+id/guidelineRegisterLeft"
+                app:layout_constraintTop_toBottomOf="@+id/tvAppName" />
+
+            <TextView
+                android:id="@+id/tvDontHaveAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="48dp"
+                android:fontFamily="@font/gilroy_extra_blod"
+                android:text="Do you have an account?"
+                android:textColor="@color/txt_color"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineRegisterRight"
+                app:layout_constraintStart_toEndOf="@+id/guidelineRegisterLeft"
+                app:layout_constraintTop_toBottomOf="@+id/tvRegisterTitle" />
+
+            <TextView
+                android:id="@+id/tvDontHaveAccountRegister"
+                android:layout_width="48dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/gilroy_extra_blod"
+                android:text="log in"
+                android:textColor="@color/teal"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvDontHaveAccount"
+                app:layout_constraintStart_toEndOf="@+id/tvDontHaveAccount"
+                app:layout_constraintTop_toTopOf="@+id/tvDontHaveAccount" />
+
+            <EditText
+                android:id="@+id/etFirstNameRegister"
+                style="@style/editText"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="50dp"
+                android:hint="First Name"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineRegisterRight"
+                app:layout_constraintStart_toStartOf="@+id/guidelineRegisterLeft"
+                app:layout_constraintTop_toBottomOf="@+id/tvDontHaveAccount" />
+
+            <EditText
+                android:id="@+id/etLastNameRegister"
+                style="@style/editText"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="24dp"
+                android:hint="Last Name"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineRegisterRight"
+                app:layout_constraintStart_toStartOf="@+id/guidelineRegisterLeft"
+                app:layout_constraintTop_toBottomOf="@+id/etFirstNameRegister" />
+
+            <EditText
+                android:id="@+id/etEmailRegister"
+                style="@style/editText"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="24dp"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineRegisterRight"
+                app:layout_constraintStart_toStartOf="@+id/guidelineRegisterLeft"
+                app:layout_constraintTop_toBottomOf="@+id/etLastNameRegister" />
+
+            <EditText
+                android:id="@+id/etPasswordRegister"
+                style="@style/editText"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="24dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineRegisterRight"
+                app:layout_constraintStart_toStartOf="@+id/guidelineRegisterLeft"
+                app:layout_constraintTop_toBottomOf="@+id/etEmailRegister" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnRegisterRegister"
+                style="@style/tealButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/mediumButtonheight"
+                android:layout_marginTop="24dp"
+                android:text="Register"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineRegisterRight"
+                app:layout_constraintStart_toStartOf="@+id/guidelineRegisterLeft"
+                app:layout_constraintTop_toBottomOf="@+id/etPasswordRegister" />
+
+            <ImageView
+                android:id="@+id/facebookLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/facebook_login"
+                app:layout_constraintStart_toStartOf="@+id/guidelineRegisterLeft"
+                app:layout_constraintTop_toBottomOf="@+id/btnRegisterRegister" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Facebook"
+                android:textColor="@color/teal"
+                app:layout_constraintBottom_toBottomOf="@+id/facebookLogin"
+                app:layout_constraintEnd_toEndOf="@+id/facebookLogin"
+                app:layout_constraintStart_toStartOf="@+id/facebookLogin"
+                app:layout_constraintTop_toTopOf="@+id/facebookLogin" />
+
+            <ImageView
+                android:id="@+id/googleLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/google_login"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineRegisterRight"
+                app:layout_constraintTop_toBottomOf="@+id/btnRegisterRegister" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Google"
+                android:textColor="@color/teal"
+                app:layout_constraintBottom_toBottomOf="@+id/googleLogin"
+                app:layout_constraintEnd_toEndOf="@+id/googleLogin"
+                app:layout_constraintStart_toStartOf="@+id/googleLogin"
+                app:layout_constraintTop_toTopOf="@+id/googleLogin" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineRegisterLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.09" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineRegisterRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.91" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

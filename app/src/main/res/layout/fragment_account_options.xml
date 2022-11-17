@@ -1,80 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/black">
 
-    <TextView
-        android:id="@+id/tvAccountOptionTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="28dp"
-        android:layout_margin="16dp"
-        android:fontFamily="@font/gilroy_extra_blod"
-        android:padding="4dp"
-        android:text="CHIORE NEWS"
-        android:textColor="@color/teal"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/accountOptionLogoAnimation"
-        android:layout_width="24dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvAccountOptionTitle"
-        app:layout_constraintStart_toEndOf="@+id/tvAccountOptionTitle"
-        app:layout_constraintTop_toTopOf="@+id/tvAccountOptionTitle"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/logo_lottie" />
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/introductionAnimationView"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_margin="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvAccountOptionTitle"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="false"
-        app:lottie_rawRes="@raw/introduction_news_lottie" />
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/tvAbout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/gilroy_extra_blod"
-        android:text="@string/introduction_title"
-        android:textAlignment="center"
-        android:textColor="@color/teal"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/introductionAnimationView" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnRegister"
-        android:layout_width="@dimen/mediumButtonWidth"
-        android:layout_height="@dimen/mediumButtonheight"
-        style="@style/tealButtonStyle"
-        android:text="Register"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+            <TextView
+                android:id="@+id/tvAccountOptionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_margin="16dp"
+                android:fontFamily="@font/gilroy_extra_blod"
+                android:padding="4dp"
+                android:text="CHIORE NEWS"
+                android:textColor="@color/teal"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnLogin"
-        android:layout_width="@dimen/mediumButtonWidth"
-        android:layout_height="@dimen/mediumButtonheight"
-        android:layout_marginTop="48dp"
-        style="@style/tealButtonStyle"
-        android:text="Login"
-        android:layout_marginBottom="56dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/accountOptionLogoAnimation"
+                android:layout_width="24dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvAccountOptionTitle"
+                app:layout_constraintStart_toEndOf="@+id/tvAccountOptionTitle"
+                app:layout_constraintTop_toTopOf="@+id/tvAccountOptionTitle"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/logo_lottie" />
 
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/introductionAnimationView"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_margin="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvAccountOptionTitle"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="false"
+                app:lottie_rawRes="@raw/introduction_news_lottie" />
+
+            <TextView
+                android:id="@+id/tvAbout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_extra_blod"
+                android:text="@string/introduction_title"
+                android:textAlignment="center"
+                android:textColor="@color/teal"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/introductionAnimationView" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnRegister"
+                style="@style/tealButtonStyle"
+                android:layout_width="@dimen/mediumButtonWidth"
+                android:layout_height="@dimen/mediumButtonheight"
+                android:layout_marginBottom="16dp"
+                android:text="Register"
+                app:layout_constraintBottom_toTopOf="@+id/btnLogin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnLogin"
+                style="@style/tealButtonStyle"
+                android:layout_width="@dimen/mediumButtonWidth"
+                android:layout_height="@dimen/mediumButtonheight"
+                android:layout_marginTop="48dp"
+                android:layout_marginBottom="56dp"
+                android:text="Login"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

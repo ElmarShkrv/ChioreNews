@@ -7,6 +7,4 @@
     android:background="@color/black"
     tools:context=".activities.LoginRegisterActivity">
 
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
