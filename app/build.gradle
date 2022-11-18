@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
     id 'dagger.hilt.android.plugin'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -75,5 +76,8 @@ dependencies {
 
     // Lottie
     implementation "com.airbnb.android:lottie:5.2.0"
+
+    // Firebase
+    implementation 'com.google.firebase:firebase-auth:21.1.0'
 
 }
