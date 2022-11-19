@@ -11,10 +11,13 @@ import androidx.lifecycle.lifecycleScope
 import com.chiore.chiorenews.R
 import com.chiore.chiorenews.data.User
 import com.chiore.chiorenews.databinding.FragmentRegisterBinding
+import com.chiore.chiorenews.util.RegisterValidation
 import com.chiore.chiorenews.util.Resource
 import com.chiore.chiorenews.viewmodel.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.withContext
 
 private val TAG = "RegisterFragment"
 @AndroidEntryPoint
@@ -61,6 +64,27 @@ class RegisterFragment : Fragment() {
                             Log.e(TAG, it.message.toString())
                         }
                         else -> Unit
+                    }
+                }
+            }
+
+            lifecycleScope.launchWhenStarted {
+                viewModel.validation.collect { validation ->
+                    if (validation.email is RegisterValidation.Failed) {
+                        withContext(Dispatchers.Main) {
+                            binding.etEmailRegister.apply {
+                                requestFocus()
+                                error = validation.email.message
+                            }
+                        }
+                    }
+                    if (validation.password is RegisterValidation.Failed) {
+                        withContext(Dispatchers.Main) {
+                            binding.etPasswordRegister.apply {
+                                requestFocus()
+                                error = validation.password.message
+                            }
+                        }
                     }
                 }
             }
