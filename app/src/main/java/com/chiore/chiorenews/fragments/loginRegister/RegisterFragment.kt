@@ -86,6 +86,22 @@ class RegisterFragment : Fragment() {
                             }
                         }
                     }
+                    if (validation.firstName is RegisterValidation.Failed) {
+                        withContext(Dispatchers.Main) {
+                            binding.etFirstNameRegister.apply {
+                                requestFocus()
+                                error = validation.firstName.message
+                            }
+                        }
+                    }
+                    if (validation.lastName is RegisterValidation.Failed) {
+                        withContext(Dispatchers.Main) {
+                            binding.etLastNameRegister.apply {
+                                requestFocus()
+                                error = validation.lastName.message
+                            }
+                        }
+                    }
                 }
             }
 

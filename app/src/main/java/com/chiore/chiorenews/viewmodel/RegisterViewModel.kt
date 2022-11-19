@@ -39,7 +39,10 @@ class RegisterViewModel @Inject constructor(
                 }
         } else {
             val registerFieldsState = RegisterFieldsState(
-                validateEmail(user.email),validatePassword(password)
+                validateEmail(user.email),
+                validatePassword(password),
+                validateFirstName(user.firstName),
+                validateLastName(user.lastName)
             )
             runBlocking {
                 _validation.send(registerFieldsState)
@@ -50,8 +53,12 @@ class RegisterViewModel @Inject constructor(
     private fun checkValidation(user: User, password: String): Boolean {
         val emailValidation = validateEmail(user.email)
         val passwordValidation = validatePassword(password)
+        val firstNameValidation = validateFirstName(user.firstName)
+        val lastNameValidation = validateLastName(user.lastName)
         val shouldRegister = emailValidation is RegisterValidation.Success &&
-                passwordValidation is RegisterValidation.Success
+                passwordValidation is RegisterValidation.Success &&
+                firstNameValidation is RegisterValidation.Success &&
+                lastNameValidation is RegisterValidation.Success
 
         return shouldRegister
     }

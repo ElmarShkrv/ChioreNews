@@ -20,3 +20,17 @@ fun validatePassword(password: String): RegisterValidation {
 
     return RegisterValidation.Success
 }
+
+fun validateFirstName(firstName: String): RegisterValidation {
+    if (firstName.isEmpty())
+        return RegisterValidation.Failed("First name cannot be empty")
+
+    return RegisterValidation.Success
+}
+
+fun validateLastName(lastName: String): RegisterValidation {
+    if (lastName.isEmpty())
+        return RegisterValidation.Failed("Last name cannot be empty")
+
+    return RegisterValidation.Success
+}
