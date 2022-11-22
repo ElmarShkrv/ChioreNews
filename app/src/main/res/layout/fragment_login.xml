@@ -14,6 +14,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <ProgressBar
+                android:id="@+id/loginProgress"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDontHaveAccount"
+                android:visibility="gone" />
+
             <TextView
                 android:id="@+id/tvAppName"
                 android:layout_width="wrap_content"
@@ -76,7 +85,7 @@
                 app:layout_constraintTop_toTopOf="@+id/tvDontHaveAccount" />
 
             <EditText
-                android:id="@+id/etMailLogin"
+                android:id="@+id/etEmailLogin"
                 style="@style/editText"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
@@ -97,7 +106,7 @@
                 android:inputType="textPassword"
                 app:layout_constraintEnd_toEndOf="@+id/guidelineLoginRight"
                 app:layout_constraintStart_toStartOf="@+id/guidelineLoginLeft"
-                app:layout_constraintTop_toBottomOf="@+id/etMailLogin" />
+                app:layout_constraintTop_toBottomOf="@+id/etEmailLogin" />
 
             <TextView
                 android:id="@+id/tvForgotPasswordLogin"
