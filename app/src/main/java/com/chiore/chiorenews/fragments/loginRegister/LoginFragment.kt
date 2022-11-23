@@ -12,7 +12,9 @@ import androidx.navigation.fragment.findNavController
 import com.chiore.chiorenews.R
 import com.chiore.chiorenews.activities.NewsActivity
 import com.chiore.chiorenews.databinding.FragmentLoginBinding
+import com.chiore.chiorenews.dialog.setupBottomSheetDialog
 import com.chiore.chiorenews.util.Resource
+import com.chiore.chiorenews.util.longSnackBar
 import com.chiore.chiorenews.util.longToast
 import com.chiore.chiorenews.util.shortToast
 import com.chiore.chiorenews.viewmodel.LoginViewModel
@@ -39,6 +41,28 @@ class LoginFragment : Fragment() {
 
         binding.tvDontHaveAccountRegister.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+        }
+
+        binding.tvForgotPasswordLogin.setOnClickListener {
+            setupBottomSheetDialog { email ->
+                viewmodel.resetPassword(email)
+            }
+        }
+
+        lifecycleScope.launchWhenStarted {
+            viewmodel.resetPassword.collect {
+                when (it) {
+                    is Resource.Loading -> {
+                    }
+                    is Resource.Success -> {
+                        requireView().longSnackBar("Reset link was sent to your email")
+                    }
+                    is Resource.Error -> {
+                        requireView().longSnackBar("Error: ${it.message}")
+                    }
+                    else -> Unit
+                }
+            }
         }
 
         binding.apply {
