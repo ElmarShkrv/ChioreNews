@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/news_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.chiore.chiorenews.fragments.news.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home"/>
+    <fragment
+        android:id="@+id/readLaterFragment"
+        android:name="com.chiore.chiorenews.fragments.news.ReadLaterFragment"
+        android:label="ReadLaterFragment"
+        tools:layout="@layout/fragment_read_later"/>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.chiore.chiorenews.fragments.news.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile"/>
+</navigation>
