@@ -34,3 +34,22 @@ fun validateLastName(lastName: String): RegisterValidation {
 
     return RegisterValidation.Success
 }
+
+fun validateEmailForLogin(email: String): LoginValidation {
+    if (email.isEmpty())
+        return LoginValidation.Failed("Email cannot be empty")
+    if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+        return LoginValidation.Failed("Wrong email format")
+
+    return LoginValidation.Success
+}
+
+fun validatePasswordForLogin(password: String): LoginValidation {
+    if (password.isEmpty())
+        return LoginValidation.Failed("Password cannot be empty")
+
+    if (password.length < 6)
+        return LoginValidation.Failed("Password should contains 6 char")
+
+    return LoginValidation.Success
+}

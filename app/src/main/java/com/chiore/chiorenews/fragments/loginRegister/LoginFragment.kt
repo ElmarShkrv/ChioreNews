@@ -13,13 +13,13 @@ import com.chiore.chiorenews.R
 import com.chiore.chiorenews.activities.NewsActivity
 import com.chiore.chiorenews.databinding.FragmentLoginBinding
 import com.chiore.chiorenews.dialog.setupBottomSheetDialog
-import com.chiore.chiorenews.util.Resource
+import com.chiore.chiorenews.util.*
 import com.chiore.chiorenews.util.longSnackBar
-import com.chiore.chiorenews.util.longToast
-import com.chiore.chiorenews.util.shortToast
 import com.chiore.chiorenews.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.withContext
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
@@ -71,11 +71,9 @@ class LoginFragment : Fragment() {
                 val password = etPasswordLogin.text.toString()
                 viewmodel.login(email, password)
             }
-        }
 
-        lifecycleScope.launchWhenStarted {
-            viewmodel.login.collect {
-                binding.apply {
+            lifecycleScope.launchWhenStarted {
+                viewmodel.login.collect {
                     when (it) {
                         is Resource.Loading -> {
                             loginProgress.visibility = View.VISIBLE
@@ -95,6 +93,28 @@ class LoginFragment : Fragment() {
                     }
                 }
             }
+
+            lifecycleScope.launchWhenStarted {
+                viewmodel.validation.collect { validation ->
+                    if (validation.email is LoginValidation.Failed) {
+                        withContext(Dispatchers.Main) {
+                            binding.etEmailLogin.apply {
+                                requestFocus()
+                                error = validation.email.message
+                            }
+                        }
+                    }
+                    if (validation.password is LoginValidation.Failed) {
+                        withContext(Dispatchers.Main) {
+                            binding.etPasswordLogin.apply {
+                                requestFocus()
+                                error = validation.password.message
+                            }
+                        }
+                    }
+                }
+            }
+
         }
 
     }

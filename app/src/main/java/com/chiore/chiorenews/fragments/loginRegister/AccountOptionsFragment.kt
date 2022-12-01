@@ -8,8 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.chiore.chiorenews.R
 import com.chiore.chiorenews.databinding.FragmentAccountOptionsBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
 
-class AccountOptionsFragment : Fragment(R.layout.fragment_account_options) {
+class AccountOptionsFragment : Fragment() {
 
     private lateinit var binding: FragmentAccountOptionsBinding
 
@@ -24,6 +26,7 @@ class AccountOptionsFragment : Fragment(R.layout.fragment_account_options) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         binding.btnLogin.setOnClickListener {
             findNavController().navigate(R.id.action_accountOptionsFragment_to_loginFragment)

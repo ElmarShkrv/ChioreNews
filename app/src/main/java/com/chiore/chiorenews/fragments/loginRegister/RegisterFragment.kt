@@ -1,5 +1,6 @@
 package com.chiore.chiorenews.fragments.loginRegister
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.chiore.chiorenews.R
+import com.chiore.chiorenews.activities.NewsActivity
 import com.chiore.chiorenews.data.User
 import com.chiore.chiorenews.databinding.FragmentRegisterBinding
 import com.chiore.chiorenews.util.RegisterValidation
@@ -21,6 +23,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.withContext
 
 private val TAG = "RegisterFragment"
+
 @AndroidEntryPoint
 class RegisterFragment : Fragment() {
 
@@ -56,12 +59,16 @@ class RegisterFragment : Fragment() {
 
             lifecycleScope.launchWhenStarted {
                 viewModel.register.collect {
-                    when(it) {
+                    when (it) {
                         is Resource.Loading -> {
                             registerProgress.visibility = View.VISIBLE
                         }
                         is Resource.Success -> {
                             registerProgress.visibility = View.GONE
+                            Intent(requireActivity(), NewsActivity::class.java).also { intent ->
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                                startActivity(intent)
+                            }
                             Log.d(TAG, it.data.toString())
                         }
                         is Resource.Error -> {
