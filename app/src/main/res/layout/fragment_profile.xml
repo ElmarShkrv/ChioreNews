@@ -1,53 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/black">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/homeHeader"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" >
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/search_box_background" >
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivProfile"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:background="@drawable/profile_img_background"
+                android:src="@drawable/chooseimage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guidelineProfileTop" />
+
+            <EditText
+                android:id="@+id/etFirstNameProfile"
+                style="@style/editText"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="36dp"
+                tools:text="Elmar"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineProfileRight"
+                app:layout_constraintStart_toStartOf="@+id/guidelineProfileLeft"
+                app:layout_constraintTop_toBottomOf="@+id/ivProfile" />
+
+            <EditText
+                android:id="@+id/etLastNameProfile"
+                style="@style/editText"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="36dp"
+                tools:text="Shkrv"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineProfileRight"
+                app:layout_constraintStart_toStartOf="@+id/guidelineProfileLeft"
+                app:layout_constraintTop_toBottomOf="@+id/etFirstNameProfile" />
+
+            <EditText
+                android:id="@+id/etEmailProfile"
+                style="@style/editText"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="36dp"
+                tools:text="elmar5@gmail.com"
+                android:inputType="textEmailAddress"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineProfileRight"
+                app:layout_constraintStart_toStartOf="@+id/guidelineProfileLeft"
+                app:layout_constraintTop_toBottomOf="@+id/etLastNameProfile" />
 
             <TextView
-                android:layout_width="0dp"
+                android:id="@+id/tvUpdatePassword"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:fontFamily="@font/gilroy_extra_blod"
-                android:paddingStart="20dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:singleLine="true"
-                android:text="Search Now"
-                android:textColor="@color/white"
+                android:text="Update password"
+                android:textColor="@color/teal"
                 android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:layout_constraintStart_toEndOf="@+id/guidelineProfileLeft"
+                app:layout_constraintTop_toBottomOf="@+id/etEmailProfile" />
 
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginEnd="8dp"
-                android:src="@drawable/ic_search"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSaveProfile"
+                style="@style/tealButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/mediumButtonheight"
+                android:layout_marginTop="16dp"
+                android:text="Save"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineProfileRight"
+                app:layout_constraintStart_toStartOf="@+id/guidelineProfileLeft"
+                app:layout_constraintTop_toBottomOf="@+id/tvUpdatePassword" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSignOut"
+                style="@style/signOutButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/mediumButtonheight"
+                android:layout_marginTop="24dp"
+                android:text="Sign Out"
+                app:layout_constraintEnd_toEndOf="@+id/guidelineProfileRight"
+                app:layout_constraintStart_toStartOf="@+id/guidelineProfileLeft"
+                app:layout_constraintTop_toBottomOf="@+id/btnSaveProfile" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineProfileTop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.06" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineProfileLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.09" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineProfileRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.91" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
