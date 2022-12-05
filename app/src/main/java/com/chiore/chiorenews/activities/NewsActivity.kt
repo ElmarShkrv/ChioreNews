@@ -11,7 +11,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.chiore.chiorenews.R
 import com.chiore.chiorenews.databinding.ActivityNewsBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NewsActivity : AppCompatActivity() {
 
     val binding by lazy {
