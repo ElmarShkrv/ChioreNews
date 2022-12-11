@@ -6,11 +6,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.chiore.chiorenews.activities.LoginRegisterActivity
+import com.chiore.chiorenews.activities.NewsActivity
 import com.chiore.chiorenews.databinding.FragmentProfileBinding
 import com.chiore.chiorenews.util.Constants
 import com.chiore.chiorenews.util.Resource
@@ -29,12 +31,7 @@ class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
     private val viewModel by viewModels<ProfileViewModel>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
-
-        viewModel.getUser()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,8 +47,11 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+        viewModel.getUser()
+
         onSignOutClick()
         observeProfile()
+
     }
 
 

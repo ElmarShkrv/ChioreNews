@@ -1,6 +1,7 @@
 package com.chiore.chiorenews.viewmodel
 
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.chiore.chiorenews.data.User
 import com.chiore.chiorenews.util.Constants.USER_COLLECTION
@@ -18,26 +19,28 @@ class ProfileViewModel @Inject constructor(
     private val firebaseAuth: FirebaseAuth,
 ) : ViewModel() {
 
+    val TAG = "ProfileViewModel"
+
     val _profile = MutableStateFlow<Resource<User>>(Resource.Unspecifed())
     val profile: Flow<Resource<User>> = _profile
 
-    private val user: User? = null
+
     fun getUser() {
-        if (user != null) {
-            _profile.value = (Resource.Success(user))
-            return
-        }
+        val docRef = firestoreDb.collection(USER_COLLECTION).document(firebaseAuth.currentUser!!.uid)
 
-        _profile.value = (Resource.Loading())
-        firestoreDb.collection(USER_COLLECTION).document(firebaseAuth.currentUser!!.uid)
-            .addSnapshotListener { value, error ->
-                if (error != null) {
-                    _profile.value = (Resource.Error(error.message))
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    _profile.value = Resource.Success(document.toObject(User::class.java))
+                    Log.d(TAG, "DocumentSnapshot data: ${document.data}")
                 } else {
-                    _profile.value = (Resource.Success(value?.toObject(User::class.java)))
+                    Log.d(TAG, "No such document")
                 }
-
             }
+            .addOnFailureListener { exception ->
+                Log.d(TAG, "get failed with ", exception)
+            }
+
     }
 
 }
