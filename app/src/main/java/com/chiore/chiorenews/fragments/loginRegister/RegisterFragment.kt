@@ -12,14 +12,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.chiore.chiorenews.R
 import com.chiore.chiorenews.activities.NewsActivity
-import com.chiore.chiorenews.data.User
+import com.chiore.chiorenews.data.model.User
 import com.chiore.chiorenews.databinding.FragmentRegisterBinding
 import com.chiore.chiorenews.util.RegisterValidation
 import com.chiore.chiorenews.util.Resource
 import com.chiore.chiorenews.viewmodel.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.withContext
 
 private val TAG = "RegisterFragment"

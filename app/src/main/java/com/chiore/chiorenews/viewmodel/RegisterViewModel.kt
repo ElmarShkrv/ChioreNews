@@ -1,11 +1,10 @@
 package com.chiore.chiorenews.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.chiore.chiorenews.data.User
+import com.chiore.chiorenews.data.model.User
 import com.chiore.chiorenews.util.*
 import com.chiore.chiorenews.util.Constants.USER_COLLECTION
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel

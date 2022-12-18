@@ -1,4 +1,4 @@
-package com.chiore.chiorenews.data
+package com.chiore.chiorenews.data.model
 
 data class User(
     val firstName: String,

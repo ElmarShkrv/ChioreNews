@@ -3,7 +3,7 @@ package com.chiore.chiorenews.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.chiore.chiorenews.data.User
+import com.chiore.chiorenews.data.model.User
 import com.chiore.chiorenews.util.Constants.USER_COLLECTION
 import com.chiore.chiorenews.util.Resource
 import com.google.firebase.auth.FirebaseAuth

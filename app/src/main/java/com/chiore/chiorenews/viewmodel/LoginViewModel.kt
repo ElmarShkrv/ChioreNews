@@ -2,7 +2,6 @@ package com.chiore.chiorenews.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.chiore.chiorenews.data.User
 import com.chiore.chiorenews.util.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
