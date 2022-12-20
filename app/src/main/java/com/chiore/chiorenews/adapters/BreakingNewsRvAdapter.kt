@@ -17,7 +17,10 @@ class BreakingNewsRvAdapter() :
 
             fun bind(article: Article) {
                 with(binding) {
-                    Glide.with(root).load(article.urlToImage).into(ivPopular)
+                    Glide.with(root).load(article.urlToImage).into(ivBreaking)
+
+                    tvBrekingNewsTitle.text = article.title
+
                 }
             }
 

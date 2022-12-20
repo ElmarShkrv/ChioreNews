@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/ivPopular"
+        android:id="@+id/ivBreaking"
         android:layout_width="330dp"
         android:layout_height="200dp"
         android:src="@color/yellow"
@@ -15,5 +15,27 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:shapeAppearanceOverlay="@style/ImageViewCorner"/>
+
+    <TextView
+        android:id="@+id/tvBrekingNewsTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:background="#80000000"
+        android:padding="8dp"
+        android:maxLines="2"
+        android:text="Bank of Japan shocks global markets with bond yield shift - CNBC"
+        app:layout_constraintStart_toStartOf="@+id/ivBreaking"
+        app:layout_constraintBottom_toBottomOf="@+id/ivBreaking"
+        app:layout_constraintEnd_toEndOf="@+id/ivBreaking"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_save"
+        android:layout_margin="8dp"
+        app:layout_constraintTop_toTopOf="@+id/ivBreaking"
+        app:layout_constraintEnd_toEndOf="@+id/ivBreaking"
+        app:tint="#80000000" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
