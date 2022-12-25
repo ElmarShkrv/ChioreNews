@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.chiore.chiorenews.R
+import com.chiore.chiorenews.adapters.AllNewsRvAdapter
 import com.chiore.chiorenews.adapters.BreakingNewsRvAdapter
 import com.chiore.chiorenews.databinding.FragmentMainCategoryBinding
 import com.chiore.chiorenews.util.Resource
@@ -22,6 +23,7 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
 
     private lateinit var binding: FragmentMainCategoryBinding
     private lateinit var breakingNewsRvAdapter: BreakingNewsRvAdapter
+    private lateinit var allNewsRvAdapter: AllNewsRvAdapter
     private val viewModel: MainCategoryViewModel by viewModels()
 
     val TAG = "MainCategoryFragment"
@@ -39,11 +41,21 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
         super.onViewCreated(view, savedInstanceState)
 
         breakingNewsRvAdapter = BreakingNewsRvAdapter()
+        allNewsRvAdapter = AllNewsRvAdapter()
 
         viewModel.breakingNews()
         observeBreakingNews()
         setupBreakingNewsRv()
 
+        viewModel.allNews.observe(viewLifecycleOwner) { allNewsResponse ->
+            allNewsRvAdapter.submitData(viewLifecycleOwner.lifecycle, allNewsResponse)
+        }
+        setupAllNewsRv()
+
+    }
+
+    private fun setupAllNewsRv() {
+        binding.latestNewsRv.adapter = allNewsRvAdapter
     }
 
     private fun setupBreakingNewsRv() {

@@ -2,6 +2,7 @@ package com.chiore.chiorenews.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -10,34 +11,38 @@ import com.chiore.chiorenews.data.model.Article
 import com.chiore.chiorenews.databinding.BreakingRvItemBinding
 import com.chiore.chiorenews.databinding.LatestRvItemBinding
 
-class BreakingNewsRvAdapter() :
-    ListAdapter<Article, BreakingNewsRvAdapter.BreakinNewsViewHolder>(DiffUtilCallBack()) {
+class AllNewsRvAdapter() :
+    PagingDataAdapter<Article, AllNewsRvAdapter.AllNewsViewHolder>(DiffUtilCallBack()) {
 
-    inner class BreakinNewsViewHolder(val binding: BreakingRvItemBinding) :
+    inner class AllNewsViewHolder(val binding: LatestRvItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-            fun bind(article: Article) {
-                with(binding) {
-                    Glide.with(root).load(article.urlToImage).into(ivBreaking)
+        fun bind(article: Article) {
+            with(binding) {
+                Glide.with(root).load(article.urlToImage).into(ivLatest)
 
-                    tvBrekingNewsTitle.text = article.title
+                tvTitle.text = article.title
+                tvAuthor.text = article.author
+                tvPublishedAt.text = article.publishedAt
 
-                }
             }
+        }
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BreakinNewsViewHolder {
-        return BreakinNewsViewHolder(
-            BreakingRvItemBinding.inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AllNewsViewHolder {
+        return AllNewsViewHolder(
+            LatestRvItemBinding.inflate(
                 LayoutInflater.from(parent.context)
             )
         )
     }
 
-    override fun onBindViewHolder(holder: BreakinNewsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AllNewsViewHolder, position: Int) {
         val result = getItem(position)
-        holder.bind(result)
+        result?.let {
+            holder.bind(result)
+        }
     }
 
     class DiffUtilCallBack : DiffUtil.ItemCallback<Article>() {

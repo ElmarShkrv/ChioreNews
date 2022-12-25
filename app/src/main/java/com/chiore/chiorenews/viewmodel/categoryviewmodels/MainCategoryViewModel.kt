@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.cachedIn
 import com.chiore.chiorenews.data.model.Article
 import com.chiore.chiorenews.repository.MainCategoryRepository
 import com.chiore.chiorenews.util.Resource
@@ -27,5 +28,7 @@ class MainCategoryViewModel @Inject constructor(
             }
         }
     }
+
+    val allNews = repository.getAllNews().cachedIn(viewModelScope)
 
 }
