@@ -2,4 +2,7 @@
 <resources>
     <dimen name="mediumButtonWidth">280dp</dimen>
     <dimen name="mediumButtonheight">55dp</dimen>
+
+    <dimen name="horizontal_margin_for_vertical">0dp</dimen>
+    <dimen name="vertical_margin_for_vertical">12dp</dimen>
 </resources>

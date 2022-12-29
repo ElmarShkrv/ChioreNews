@@ -5,7 +5,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.liveData
 import com.chiore.chiorenews.data.model.NewsResponse
 import com.chiore.chiorenews.data.remote.NewsApi
-import com.chiore.chiorenews.paging.AllNewsPagingSource
+import com.chiore.chiorenews.paging.LatestNewsPagingSource
 import com.chiore.chiorenews.util.Resource
 import javax.inject.Inject
 
@@ -27,13 +27,13 @@ class MainCategoryRepository @Inject constructor(
         }
     }
 
-    fun getAllNews() =
+    fun getLatestNews() =
         Pager(
             config = PagingConfig(
                 pageSize = 5,
                 maxSize = 20,
                 enablePlaceholders = false
             ),
-            pagingSourceFactory = { AllNewsPagingSource(newsApi) }
+            pagingSourceFactory = { LatestNewsPagingSource(newsApi) }
         ).liveData
 }

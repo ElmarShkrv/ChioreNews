@@ -8,7 +8,7 @@ import com.chiore.chiorenews.util.Constants.STARTING_PAGE_INDEX
 import retrofit2.HttpException
 import java.io.IOException
 
-class AllNewsPagingSource(
+class LatestNewsPagingSource(
     private val newsApi: NewsApi,
 ) : PagingSource<Int, Article>() {
 
@@ -19,7 +19,7 @@ class AllNewsPagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Article> {
         return try {
             val position = params.key ?: STARTING_PAGE_INDEX
-            val response = newsApi.getAllNews(pageNumber = position)
+            val response = newsApi.getLatestNews(pageNumber = position)
             val news = response.body()!!.articles
 
             LoadResult.Page(data = news,

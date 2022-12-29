@@ -4,15 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.chiore.chiorenews.data.model.Article
-import com.chiore.chiorenews.databinding.BreakingRvItemBinding
 import com.chiore.chiorenews.databinding.LatestRvItemBinding
 
-class AllNewsRvAdapter() :
-    PagingDataAdapter<Article, AllNewsRvAdapter.AllNewsViewHolder>(DiffUtilCallBack()) {
+class latestNewsRvAdapter() :
+    PagingDataAdapter<Article, latestNewsRvAdapter.AllNewsViewHolder>(DiffUtilCallBack()) {
 
     inner class AllNewsViewHolder(val binding: LatestRvItemBinding) :
         RecyclerView.ViewHolder(binding.root) {

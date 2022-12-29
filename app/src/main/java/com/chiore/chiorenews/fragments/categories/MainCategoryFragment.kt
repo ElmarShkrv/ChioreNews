@@ -9,12 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.chiore.chiorenews.R
-import com.chiore.chiorenews.adapters.AllNewsRvAdapter
+import com.chiore.chiorenews.adapters.latestNewsRvAdapter
 import com.chiore.chiorenews.adapters.BreakingNewsRvAdapter
 import com.chiore.chiorenews.databinding.FragmentMainCategoryBinding
+import com.chiore.chiorenews.util.DefaultItemDecorator
 import com.chiore.chiorenews.util.Resource
 import com.chiore.chiorenews.viewmodel.categoryviewmodels.MainCategoryViewModel
-import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -23,7 +23,7 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
 
     private lateinit var binding: FragmentMainCategoryBinding
     private lateinit var breakingNewsRvAdapter: BreakingNewsRvAdapter
-    private lateinit var allNewsRvAdapter: AllNewsRvAdapter
+    private lateinit var latestNewsRvAdapter: latestNewsRvAdapter
     private val viewModel: MainCategoryViewModel by viewModels()
 
     val TAG = "MainCategoryFragment"
@@ -41,21 +41,25 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
         super.onViewCreated(view, savedInstanceState)
 
         breakingNewsRvAdapter = BreakingNewsRvAdapter()
-        allNewsRvAdapter = AllNewsRvAdapter()
+        latestNewsRvAdapter = latestNewsRvAdapter()
 
         viewModel.breakingNews()
         observeBreakingNews()
         setupBreakingNewsRv()
 
-        viewModel.allNews.observe(viewLifecycleOwner) { allNewsResponse ->
-            allNewsRvAdapter.submitData(viewLifecycleOwner.lifecycle, allNewsResponse)
+        viewModel.latestNews.observe(viewLifecycleOwner) { allNewsResponse ->
+            latestNewsRvAdapter.submitData(viewLifecycleOwner.lifecycle, allNewsResponse)
         }
-        setupAllNewsRv()
+        latestNewsRv()
 
     }
 
-    private fun setupAllNewsRv() {
-        binding.latestNewsRv.adapter = allNewsRvAdapter
+    private fun latestNewsRv() {
+        binding.latestNewsRv.adapter = latestNewsRvAdapter
+        binding.latestNewsRv.addItemDecoration(DefaultItemDecorator(
+            resources.getDimensionPixelSize(R.dimen.horizontal_margin_for_vertical),
+            resources.getDimensionPixelSize(R.dimen.vertical_margin_for_vertical)
+        ))
     }
 
     private fun setupBreakingNewsRv() {

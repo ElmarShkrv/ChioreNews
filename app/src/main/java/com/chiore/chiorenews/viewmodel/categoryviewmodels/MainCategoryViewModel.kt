@@ -29,6 +29,6 @@ class MainCategoryViewModel @Inject constructor(
         }
     }
 
-    val allNews = repository.getAllNews().cachedIn(viewModelScope)
+    val latestNews = repository.getLatestNews().cachedIn(viewModelScope)
 
 }
