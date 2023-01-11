@@ -1,4 +1,4 @@
-package com.chiore.chiorenews.repository
+package com.chiore.chiorenews.util.repository
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig

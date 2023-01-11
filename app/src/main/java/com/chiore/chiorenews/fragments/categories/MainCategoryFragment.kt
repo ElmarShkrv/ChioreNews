@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.chiore.chiorenews.R
-import com.chiore.chiorenews.adapters.latestNewsRvAdapter
+import com.chiore.chiorenews.adapters.LatestNewsRvAdapter
 import com.chiore.chiorenews.adapters.BreakingNewsRvAdapter
 import com.chiore.chiorenews.databinding.FragmentMainCategoryBinding
 import com.chiore.chiorenews.util.DefaultItemDecorator
@@ -23,7 +23,7 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
 
     private lateinit var binding: FragmentMainCategoryBinding
     private lateinit var breakingNewsRvAdapter: BreakingNewsRvAdapter
-    private lateinit var latestNewsRvAdapter: latestNewsRvAdapter
+    private lateinit var latestNewsRvAdapter: LatestNewsRvAdapter
     private val viewModel: MainCategoryViewModel by viewModels()
 
     val TAG = "MainCategoryFragment"
@@ -41,7 +41,7 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
         super.onViewCreated(view, savedInstanceState)
 
         breakingNewsRvAdapter = BreakingNewsRvAdapter()
-        latestNewsRvAdapter = latestNewsRvAdapter()
+        latestNewsRvAdapter = LatestNewsRvAdapter()
 
         viewModel.breakingNews()
         observeBreakingNews()

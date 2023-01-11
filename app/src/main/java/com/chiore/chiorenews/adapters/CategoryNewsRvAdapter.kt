@@ -2,17 +2,17 @@ package com.chiore.chiorenews.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.chiore.chiorenews.data.model.Article
 import com.chiore.chiorenews.databinding.LatestRvItemBinding
 
-class latestNewsRvAdapter() :
-    PagingDataAdapter<Article, latestNewsRvAdapter.AllNewsViewHolder>(DiffUtilCallBack()) {
+class CategoryNewsRvAdapter() :
+    ListAdapter<Article, CategoryNewsRvAdapter.CategoryNewsViewHolder>(DiffUtilCallBack()) {
 
-    inner class AllNewsViewHolder(val binding: LatestRvItemBinding) :
+    inner class CategoryNewsViewHolder(val binding: LatestRvItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(article: Article) {
@@ -28,19 +28,17 @@ class latestNewsRvAdapter() :
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AllNewsViewHolder {
-        return AllNewsViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryNewsViewHolder {
+        return CategoryNewsViewHolder(
             LatestRvItemBinding.inflate(
                 LayoutInflater.from(parent.context)
             )
         )
     }
 
-    override fun onBindViewHolder(holder: AllNewsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CategoryNewsViewHolder, position: Int) {
         val result = getItem(position)
-        result?.let {
-            holder.bind(result)
-        }
+        holder.bind(result)
     }
 
     class DiffUtilCallBack : DiffUtil.ItemCallback<Article>() {
