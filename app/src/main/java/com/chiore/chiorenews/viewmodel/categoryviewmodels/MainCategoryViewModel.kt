@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
 import com.chiore.chiorenews.data.model.Article
-import com.chiore.chiorenews.util.repository.MainCategoryRepository
+import com.chiore.chiorenews.repository.MainCategoryRepository
 import com.chiore.chiorenews.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

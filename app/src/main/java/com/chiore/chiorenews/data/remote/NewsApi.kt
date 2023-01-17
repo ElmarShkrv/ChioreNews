@@ -23,7 +23,7 @@ interface NewsApi {
     ): Response<NewsResponse>
 
     @GET("v2/top-headlines")
-    suspend fun getNewsByCategory(
+    suspend fun getLatestNewsByCategory(
         @Query("country") countryCode: String = "us",
         @Query("category") category: String,
         @Query("page") pageNumber: Int = 1,
