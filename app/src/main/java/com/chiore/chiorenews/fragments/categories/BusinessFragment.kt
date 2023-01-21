@@ -14,8 +14,8 @@ class BusinessFragment : BaseCategoryFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.latestNewsByBusiness.observe(viewLifecycleOwner) { allNewsResponse ->
-            latestNewsRvAdapter.submitData(viewLifecycleOwner.lifecycle, allNewsResponse)
+        viewModel.latestNewsByBusiness.observe(viewLifecycleOwner) { businessNewsResponse ->
+            latestNewsRvAdapter.submitData(viewLifecycleOwner.lifecycle, businessNewsResponse)
         }
     }
 }

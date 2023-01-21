@@ -15,6 +15,9 @@ class BaseCategoryViewModel @Inject constructor(
 
     val latestNewsByBusiness = repository.getLatestNewsByCategory(Categories.Business.category).cachedIn(viewModelScope)
     val latestNewsByEntertainment = repository.getLatestNewsByCategory(Categories.Entertainment.category).cachedIn(viewModelScope)
-//    val latestNewsByHealth = repository.getLatestNewsByCategory(Categories.Health.category).cachedIn(viewModelScope)
+    val latestNewsByHealth = repository.getLatestNewsByCategory(Categories.Health.category).cachedIn(viewModelScope)
+    val latestNewsByScience = repository.getLatestNewsByCategory(Categories.Science.category).cachedIn(viewModelScope)
+    val latestNewsBySports = repository.getLatestNewsByCategory(Categories.Sports.category).cachedIn(viewModelScope)
+    val latestNewsByTechnology = repository.getLatestNewsByCategory(Categories.Technology.category).cachedIn(viewModelScope)
 
 }

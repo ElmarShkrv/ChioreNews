@@ -14,8 +14,8 @@ class EntertainmentFragment: BaseCategoryFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.latestNewsByEntertainment.observe(viewLifecycleOwner) { allNewsResponse ->
-            latestNewsRvAdapter.submitData(viewLifecycleOwner.lifecycle, allNewsResponse)
+        viewModel.latestNewsByEntertainment.observe(viewLifecycleOwner) { entertainmentNewsResponse ->
+            latestNewsRvAdapter.submitData(viewLifecycleOwner.lifecycle, entertainmentNewsResponse)
         }
     }
 
