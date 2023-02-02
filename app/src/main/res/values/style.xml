@@ -46,6 +46,11 @@
         <item name="cornerSizeBottomRight">16dp</item>
     </style>
 
+    <style name="ImageViewDetailsCorner">
+        <item name="cornerSizeBottomLeft">36dp</item>
+        <item name="cornerSizeBottomRight">36dp</item>
+    </style>
+
     <style name="circleImageView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>

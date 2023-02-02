@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivDetails"
+            android:layout_width="match_parent"
+            android:layout_height="380dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:scaleType="centerCrop"
+            android:src="@color/purple_700"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ImageViewDetailsCorner" />
+
+        <ImageView
+            android:id="@+id/icBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/icShare"
+            android:layout_width="24dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/redo"
+            app:layout_constraintBottom_toBottomOf="@+id/icBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/icBack" />
+
+        <ImageView
+            android:id="@+id/icFav"
+            android:layout_width="24dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_fav_empty"
+            app:layout_constraintBottom_toBottomOf="@+id/icBack"
+            app:layout_constraintEnd_toStartOf="@id/icShare"
+            app:layout_constraintTop_toTopOf="@+id/icBack" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_web"
+            app:layout_constraintBottom_toBottomOf="@+id/icBack"
+            app:layout_constraintEnd_toStartOf="@id/icFav"
+            app:layout_constraintTop_toTopOf="@+id/icBack" />
+
+        <TextView
+            android:id="@+id/tvDetailsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/gilroy_light"
+            android:text="OG Bitcoin Core Developer Claims Hack Drained Nearly All His BTC"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivDetails" />
+
+        <TextView
+            android:id="@+id/tvDetailsAuthorTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/gilroy_light"
+            android:text="Author By: "
+            android:textColor="@color/txt_color"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/tvDetailsTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailsTitle" />
+
+        <TextView
+            android:id="@+id/tvDetailsAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/gilroy_light"
+            android:text="Lucas Ropek"
+            android:textColor="@color/teal"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/tvDetailsAuthorTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailsTitle" />
+
+        <TextView
+            android:id="@+id/tvDetailsPublishedTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/gilroy_light"
+            android:text="Published At: "
+            android:textColor="@color/txt_color"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/tvDetailsTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailsAuthorTitle" />
+
+        <TextView
+            android:id="@+id/tvDetailsPublished"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/gilroy_light"
+            android:text="2023-01-03"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/tvDetailsPublishedTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailsAuthor" />
+
+        <TextView
+            android:id="@+id/tvDetailsDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/gilroy_light"
+            android:padding="8dp"
+            android:text="Even cryptocurrency’s most accomplished tech wizards apparently aren’t immune from the occasional wallet-draining hack. Luke Dashjr, one of the original core developers for Bitcoin, claims that someone swiped hundreds of BTC from his accounts late last year"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/btnReadAll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailsPublished" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnReadAll"
+            style="@style/tealButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/mediumButtonheight"
+            android:layout_margin="16dp"
+            android:drawableStart="@drawable/ic_web_mini"
+            android:paddingStart="36dp"
+            android:paddingEnd="36dp"
+            android:text="Read All News"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

@@ -20,4 +20,9 @@
         android:name="com.chiore.chiorenews.fragments.news.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile"/>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.chiore.chiorenews.fragments.news.DetailsFragment"
+        android:label="DetailsFragment"
+        tools:layout="@layout/fragment_details"/>
 </navigation>
