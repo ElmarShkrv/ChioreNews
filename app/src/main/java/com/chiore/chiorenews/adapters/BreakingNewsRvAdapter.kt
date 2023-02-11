@@ -2,6 +2,7 @@ package com.chiore.chiorenews.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -9,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.chiore.chiorenews.data.model.Article
 import com.chiore.chiorenews.databinding.BreakingRvItemBinding
 import com.chiore.chiorenews.databinding.LatestRvItemBinding
+import com.chiore.chiorenews.fragments.news.HomeFragmentDirections
 
 class BreakingNewsRvAdapter() :
     ListAdapter<Article, BreakingNewsRvAdapter.BreakinNewsViewHolder>(DiffUtilCallBack()) {
@@ -16,14 +18,14 @@ class BreakingNewsRvAdapter() :
     inner class BreakinNewsViewHolder(val binding: BreakingRvItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-            fun bind(article: Article) {
-                with(binding) {
-                    Glide.with(root).load(article.urlToImage).into(ivBreaking)
+        fun bind(article: Article) {
+            with(binding) {
+                Glide.with(root).load(article.urlToImage).into(ivBreaking)
 
-                    tvBrekingNewsTitle.text = article.title
+                tvBrekingNewsTitle.text = article.title
 
-                }
             }
+        }
 
     }
 
@@ -37,7 +39,16 @@ class BreakingNewsRvAdapter() :
 
     override fun onBindViewHolder(holder: BreakinNewsViewHolder, position: Int) {
         val result = getItem(position)
-        holder.bind(result)
+        result?.let {
+            holder.bind(result)
+
+            holder.itemView.setOnClickListener { view ->
+                val action = HomeFragmentDirections
+                    .actionHomeFragmentToDetailsFragment(result)
+                Navigation.findNavController(view).navigate(action)
+            }
+
+        }
     }
 
     class DiffUtilCallBack : DiffUtil.ItemCallback<Article>() {

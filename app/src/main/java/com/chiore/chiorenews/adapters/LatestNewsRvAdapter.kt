@@ -2,12 +2,14 @@ package com.chiore.chiorenews.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.chiore.chiorenews.data.model.Article
 import com.chiore.chiorenews.databinding.LatestRvItemBinding
+import com.chiore.chiorenews.fragments.news.HomeFragmentDirections
 
 class LatestNewsRvAdapter() :
     PagingDataAdapter<Article, LatestNewsRvAdapter.AllNewsViewHolder>(DiffUtilCallBack()) {
@@ -40,6 +42,12 @@ class LatestNewsRvAdapter() :
         val result = getItem(position)
         result?.let {
             holder.bind(result)
+
+            holder.itemView.setOnClickListener { view ->
+                val action = HomeFragmentDirections
+                    .actionHomeFragmentToDetailsFragment(result)
+                Navigation.findNavController(view).navigate(action)
+            }
         }
     }
 

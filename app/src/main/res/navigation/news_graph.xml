@@ -9,7 +9,11 @@
         android:id="@+id/homeFragment"
         android:name="com.chiore.chiorenews.fragments.news.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/readLaterFragment"
         android:name="com.chiore.chiorenews.fragments.news.ReadLaterFragment"
@@ -24,5 +28,10 @@
         android:id="@+id/detailsFragment"
         android:name="com.chiore.chiorenews.fragments.news.DetailsFragment"
         android:label="DetailsFragment"
-        tools:layout="@layout/fragment_details"/>
+        tools:layout="@layout/fragment_details">
+        <argument
+            android:name="detailsData"
+            app:argType="com.chiore.chiorenews.data.model.Article"
+            app:nullable="true" />
+    </fragment>
 </navigation>
