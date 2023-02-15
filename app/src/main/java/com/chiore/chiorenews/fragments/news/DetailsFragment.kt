@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavArgs
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
@@ -44,6 +45,12 @@ class DetailsFragment : Fragment() {
 
                 icBack.setOnClickListener {
                     findNavController().navigateUp()
+                }
+
+                btnReadAll.setOnClickListener { view ->
+                    val action = DetailsFragmentDirections
+                        .actionDetailsFragmentToWebFragment(detailsData.url)
+                    Navigation.findNavController(view).navigate(action)
                 }
 
             }

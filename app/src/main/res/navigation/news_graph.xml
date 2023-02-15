@@ -33,5 +33,18 @@
             android:name="detailsData"
             app:argType="com.chiore.chiorenews.data.model.Article"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_detailsFragment_to_webFragment"
+            app:destination="@id/webFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/webFragment"
+        android:name="com.chiore.chiorenews.fragments.news.WebFragment"
+        android:label="WebFragment"
+        tools:layout="@layout/fragment_web">
+        <argument
+            android:name="webUrl"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
 </navigation>

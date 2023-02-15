@@ -2,7 +2,9 @@ package com.chiore.chiorenews.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -19,7 +21,6 @@ class NewsActivity : AppCompatActivity() {
     val binding by lazy {
         ActivityNewsBinding.inflate(layoutInflater)
     }
-//    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,12 +29,27 @@ class NewsActivity : AppCompatActivity() {
         val navController = findNavController(R.id.newsHostFragment)
         binding.bottomNavigation.setupWithNavController(navController)
 
-//        val navHostFragment = supportFragmentManager.findFragmentById(R.id.newsHostFragment) as NavHostFragment
-//        navController = navHostFragment.findNavController()
-//
-//        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigation)
-//
-//        NavigationUI.setupWithNavController(bottomNavigationView, navController)
+        navController.addOnDestinationChangedListener { controller: NavController?, destination: NavDestination, bundle: Bundle? ->
+
+            if (destination.id == R.id.webFragment) {
+
+                hideBottomNavigation()
+
+            } else {
+
+                showBottomNavigation()
+
+            }
+        }
 
     }
+
+    fun hideBottomNavigation() {
+        binding.bottomNavigation.visibility = View.GONE
+    }
+
+    fun showBottomNavigation() {
+        binding.bottomNavigation.visibility = View.VISIBLE
+    }
+
 }
