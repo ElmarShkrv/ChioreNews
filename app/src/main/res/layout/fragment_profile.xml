@@ -64,7 +64,6 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="36dp"
                 tools:text="elmar5@gmail.com"
-                android:inputType="textEmailAddress"
                 app:layout_constraintEnd_toEndOf="@+id/guidelineProfileRight"
                 app:layout_constraintStart_toStartOf="@+id/guidelineProfileLeft"
                 app:layout_constraintTop_toBottomOf="@+id/etLastNameProfile" />

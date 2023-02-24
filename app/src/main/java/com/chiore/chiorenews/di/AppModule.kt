@@ -5,6 +5,7 @@ import com.chiore.chiorenews.util.Constants.BASE_URL
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,6 +25,10 @@ object AppModule {
     @Provides
     @Singleton
     fun provideFirebaseFirestoreDatabase() = Firebase.firestore
+
+    @Provides
+    @Singleton
+    fun provideStorage() = FirebaseStorage.getInstance().reference
 
     @Provides
     @Singleton
