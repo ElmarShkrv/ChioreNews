@@ -57,12 +57,13 @@
                 app:layout_constraintStart_toStartOf="@+id/guidelineProfileLeft"
                 app:layout_constraintTop_toBottomOf="@+id/etFirstNameProfile" />
 
-            <EditText
-                android:id="@+id/etEmailProfile"
+            <TextView
+                android:id="@+id/tvEmailProfile"
                 style="@style/editText"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="36dp"
+                android:textSize="20sp"
                 tools:text="elmar5@gmail.com"
                 app:layout_constraintEnd_toEndOf="@+id/guidelineProfileRight"
                 app:layout_constraintStart_toStartOf="@+id/guidelineProfileLeft"
@@ -78,7 +79,7 @@
                 android:textColor="@color/teal"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/guidelineProfileLeft"
-                app:layout_constraintTop_toBottomOf="@+id/etEmailProfile" />
+                app:layout_constraintTop_toBottomOf="@+id/tvEmailProfile" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnSaveProfile"

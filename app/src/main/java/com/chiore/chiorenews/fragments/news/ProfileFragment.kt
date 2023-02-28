@@ -109,7 +109,7 @@ class ProfileFragment : Fragment() {
             binding.apply {
                 val firstName = etFirstNameProfile.text.toString().trim()
                 val lastName = etLastNameProfile.text.toString().trim()
-                val email = etEmailProfile.text.toString().trim()
+                val email = tvEmailProfile.text.toString().trim()
                 val user = User(firstName, lastName, email)
                 viewModel.updateUserInfo(user, imageUri)
             }
@@ -133,7 +133,7 @@ class ProfileFragment : Fragment() {
                 .into(ivProfile)
             etFirstNameProfile.setText(data.firstName)
             etLastNameProfile.setText(data.lastName)
-            etEmailProfile.setText(data.email)
+            tvEmailProfile.text = data.email
         }
     }
 
@@ -143,7 +143,7 @@ class ProfileFragment : Fragment() {
             ivProfile.visibility = View.VISIBLE
             etFirstNameProfile.visibility = View.VISIBLE
             etLastNameProfile.visibility = View.VISIBLE
-            etEmailProfile.visibility = View.VISIBLE
+            tvEmailProfile.visibility = View.VISIBLE
             tvUpdatePassword.visibility = View.VISIBLE
             btnSaveProfile.visibility = View.VISIBLE
             btnSignOut.visibility = View.VISIBLE
@@ -156,7 +156,7 @@ class ProfileFragment : Fragment() {
             ivProfile.visibility = View.INVISIBLE
             etFirstNameProfile.visibility = View.INVISIBLE
             etLastNameProfile.visibility = View.INVISIBLE
-            etEmailProfile.visibility = View.INVISIBLE
+            tvEmailProfile.visibility = View.INVISIBLE
             tvUpdatePassword.visibility = View.INVISIBLE
             btnSaveProfile.visibility = View.INVISIBLE
             btnSignOut.visibility = View.INVISIBLE

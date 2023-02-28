@@ -10,6 +10,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.chiore.chiorenews.R
 import com.chiore.chiorenews.data.model.Article
 import com.chiore.chiorenews.databinding.FragmentDetailsBinding
 
@@ -18,6 +19,7 @@ class DetailsFragment : Fragment() {
     private lateinit var binding: FragmentDetailsBinding
     private val args by navArgs<DetailsFragmentArgs>()
     private lateinit var detailsData: Article
+    private var isFavorite: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,6 +53,23 @@ class DetailsFragment : Fragment() {
                     val action = DetailsFragmentDirections
                         .actionDetailsFragmentToWebFragment(detailsData.url)
                     Navigation.findNavController(view).navigate(action)
+                }
+
+                ivWebPage.setOnClickListener { view ->
+                    val action = DetailsFragmentDirections
+                        .actionDetailsFragmentToWebFragment(detailsData.url)
+                    Navigation.findNavController(view).navigate(action)
+                }
+
+                icFav.setOnClickListener {
+                    isFavorite = !isFavorite
+                    if (!isFavorite) {
+                        icFav.setBackgroundResource(R.drawable.ic_fav_empty)
+                    } else {
+                        icFav.setBackgroundResource(R.drawable.ic_fav)
+                    }
+
+
                 }
 
             }
