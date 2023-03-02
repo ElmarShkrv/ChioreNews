@@ -39,45 +39,41 @@
         app:layout_constraintStart_toEndOf="@+id/ivLatest"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvTitle"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle">
-
         <TextView
             android:id="@+id/tvAuthor"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:fontFamily="@font/gilroy_extra_blod"
+            app:layout_constraintStart_toStartOf="@+id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
             android:maxLines="1"
-            android:maxLength="12"
             android:text="Matt Novak"
             android:textColor="@color/yellow" />
 
         <TextView
             android:id="@+id/tvPublishedAt"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:fontFamily="@font/gilroy_extra_blod"
-            android:maxLines="1"
             android:maxLength="10"
+            android:maxLines="1"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/tvAuthor"
+            app:layout_constraintTop_toBottomOf="@+id/tvAuthor"
+            app:layout_constraintEnd_toEndOf="parent"
             android:text="2022-11-22"
             android:textColor="@color/yellow" />
 
         <ImageView
             android:id="@+id/seeAllSave"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginEnd="8dp"
-            android:layout_weight="1"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:src="@drawable/ic_save" />
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

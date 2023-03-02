@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.chiore.chiorenews.R
 import com.chiore.chiorenews.data.model.Article
 import com.chiore.chiorenews.databinding.BreakingRvItemBinding
 import com.chiore.chiorenews.databinding.LatestRvItemBinding
@@ -20,7 +21,7 @@ class BreakingNewsRvAdapter() :
 
         fun bind(article: Article) {
             with(binding) {
-                Glide.with(root).load(article.urlToImage).into(ivBreaking)
+                Glide.with(root).load(article.urlToImage).error(R.drawable.no_image).into(ivBreaking)
 
                 tvBrekingNewsTitle.text = article.title
 

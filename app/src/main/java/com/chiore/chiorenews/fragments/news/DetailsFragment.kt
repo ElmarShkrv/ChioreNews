@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavArgs
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -38,7 +37,8 @@ class DetailsFragment : Fragment() {
 
             binding.apply {
 
-                Glide.with(requireView()).load(detailsData.urlToImage).into(binding.ivDetails)
+                Glide.with(requireView()).load(detailsData.urlToImage)
+                    .error(R.drawable.no_details_image).into(binding.ivDetails)
 
                 tvDetailsTitle.text = detailsData.title
                 tvDetailsAuthor.text = detailsData.author
