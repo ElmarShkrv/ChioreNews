@@ -1,5 +1,6 @@
 package com.chiore.chiorenews.fragments.news
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -68,8 +69,15 @@ class DetailsFragment : Fragment() {
                     } else {
                         icFav.setBackgroundResource(R.drawable.ic_fav)
                     }
+                }
 
+                icShare.setOnClickListener {
+                    val intent = Intent(Intent.ACTION_SEND)
+                    intent.type = "text/plain"
+                    intent.putExtra(Intent.EXTRA_TEXT, detailsData.url)
 
+                    val chooser = Intent.createChooser(intent, "Share using...")
+                    startActivity(chooser)
                 }
 
             }
