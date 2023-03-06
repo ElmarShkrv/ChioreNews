@@ -15,17 +15,24 @@ interface NewsApi {
         @Query("apiKey") apiKey: String = API_KEY
     ): Response<NewsResponse>
 
-    @GET("v2/everything")
-    suspend fun getLatestNews(
-        @Query("q") countryCode: String = "a",
-        @Query("page") pageNumber: Int,
-        @Query("apiKey") apiKey: String = API_KEY
-    ): Response<NewsResponse>
-
     @GET("v2/top-headlines")
     suspend fun getLatestNewsByCategory(
         @Query("country") countryCode: String = "us",
         @Query("category") category: String,
+        @Query("page") pageNumber: Int = 1,
+        @Query("apiKey") apiKey: String = API_KEY
+    ): Response<NewsResponse>
+
+    @GET("v2/everything")
+    suspend fun getLatestNews(
+        @Query("q") searchQuery: String = "a",
+        @Query("page") pageNumber: Int,
+        @Query("apiKey") apiKey: String = API_KEY
+    ): Response<NewsResponse>
+
+    @GET("v2/everything")
+    suspend fun getSearchNews(
+        @Query("q") searchQuery: String,
         @Query("page") pageNumber: Int = 1,
         @Query("apiKey") apiKey: String = API_KEY
     ): Response<NewsResponse>

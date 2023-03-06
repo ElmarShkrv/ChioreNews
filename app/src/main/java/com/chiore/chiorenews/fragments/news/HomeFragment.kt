@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.chiore.chiorenews.R
 import com.chiore.chiorenews.adapters.HomeViewpagerAdapter
 import com.chiore.chiorenews.databinding.FragmentHomeBinding
@@ -54,6 +55,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 6 -> tab.text = "Technology"
             }
         }.attach()
+
+        binding.tvHomeSearch.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
+        }
 
     }
 
