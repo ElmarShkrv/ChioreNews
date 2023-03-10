@@ -30,6 +30,7 @@
         android:id="@+id/tvTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
         android:layout_margin="8dp"
         android:fontFamily="@font/gilroy_extra_blod"
         android:maxLines="2"
@@ -43,6 +44,7 @@
             android:id="@+id/tvAuthor"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:textAlignment="center"
             android:fontFamily="@font/gilroy_extra_blod"
             app:layout_constraintStart_toStartOf="@+id/tvTitle"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle"
@@ -56,6 +58,7 @@
             android:id="@+id/tvPublishedAt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:textAlignment="center"
             android:fontFamily="@font/gilroy_extra_blod"
             android:maxLength="10"
             android:maxLines="1"
@@ -68,6 +71,7 @@
 
         <ImageView
             android:id="@+id/seeAllSave"
+            android:visibility="gone"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginEnd="12dp"

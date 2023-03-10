@@ -44,11 +44,11 @@
             app:layout_constraintTop_toTopOf="@+id/icBack" />
 
         <ImageView
-            android:id="@+id/icFav"
+            android:id="@+id/icSave"
             android:layout_width="24dp"
             android:layout_height="0dp"
             android:layout_marginEnd="8dp"
-            android:src="@drawable/ic_fav_empty"
+            android:src="@drawable/ic_save"
             app:layout_constraintBottom_toBottomOf="@+id/icBack"
             app:layout_constraintEnd_toStartOf="@id/icShare"
             app:layout_constraintTop_toTopOf="@+id/icBack" />
@@ -60,7 +60,7 @@
             android:layout_marginEnd="8dp"
             android:src="@drawable/ic_web"
             app:layout_constraintBottom_toBottomOf="@+id/icBack"
-            app:layout_constraintEnd_toStartOf="@id/icFav"
+            app:layout_constraintEnd_toStartOf="@id/icSave"
             app:layout_constraintTop_toTopOf="@+id/icBack" />
 
         <TextView
@@ -155,12 +155,14 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/mediumButtonheight"
             android:layout_margin="16dp"
+            android:layout_marginBottom="616dp"
             android:drawableStart="@drawable/ic_web_mini"
             android:paddingStart="36dp"
             android:paddingEnd="36dp"
             android:text="Read All News"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
