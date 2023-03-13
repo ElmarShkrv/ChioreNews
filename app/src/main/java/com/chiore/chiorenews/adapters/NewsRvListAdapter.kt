@@ -9,13 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.chiore.chiorenews.R
 import com.chiore.chiorenews.data.model.Article
-import com.chiore.chiorenews.databinding.BreakingRvItemBinding
 import com.chiore.chiorenews.databinding.LatestRvItemBinding
-import com.chiore.chiorenews.fragments.news.HomeFragmentDirections
 import com.chiore.chiorenews.fragments.news.SearchFragmentDirections
 
-class SearchNewsRvAdapter() :
-    ListAdapter<Article, SearchNewsRvAdapter.SearchNewsViewHolder>(DiffUtilCallBack()) {
+class NewsRvListAdapter() :
+    ListAdapter<Article, NewsRvListAdapter.SearchNewsViewHolder>(DiffUtilCallBack()) {
 
     inner class SearchNewsViewHolder(val binding: LatestRvItemBinding) :
         RecyclerView.ViewHolder(binding.root) {

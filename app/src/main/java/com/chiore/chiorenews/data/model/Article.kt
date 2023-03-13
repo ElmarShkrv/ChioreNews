@@ -29,7 +29,7 @@ data class Article(
         description: String?,
         publishedAt: String?,
         title: String?,
-        url: String?,
+        url: String,
         urlToImage: String?,
     ) : this(
         author,
@@ -38,7 +38,7 @@ data class Article(
         publishedAt,
         Source("", ""),
         title,
-        "",
+        url,
         urlToImage
     )
 

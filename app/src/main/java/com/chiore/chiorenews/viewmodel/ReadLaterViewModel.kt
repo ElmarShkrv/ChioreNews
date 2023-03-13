@@ -5,13 +5,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.chiore.chiorenews.data.model.Article
 import com.chiore.chiorenews.repository.DetailsRepository
+import com.chiore.chiorenews.repository.ReadLaterRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class DetailsViewModel @Inject constructor(
-    private val repository: DetailsRepository,
+class ReadLaterViewModel @Inject constructor(
+    private val repository: ReadLaterRepository,
 ) : ViewModel() {
 
     fun saveNews(article: Article) = viewModelScope.launch {

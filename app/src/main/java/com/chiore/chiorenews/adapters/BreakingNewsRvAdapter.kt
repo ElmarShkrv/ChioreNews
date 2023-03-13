@@ -10,13 +10,12 @@ import com.bumptech.glide.Glide
 import com.chiore.chiorenews.R
 import com.chiore.chiorenews.data.model.Article
 import com.chiore.chiorenews.databinding.BreakingRvItemBinding
-import com.chiore.chiorenews.databinding.LatestRvItemBinding
 import com.chiore.chiorenews.fragments.news.HomeFragmentDirections
 
 class BreakingNewsRvAdapter() :
-    ListAdapter<Article, BreakingNewsRvAdapter.BreakinNewsViewHolder>(DiffUtilCallBack()) {
+    ListAdapter<Article, BreakingNewsRvAdapter.BreakingNewsViewHolder>(DiffUtilCallBack()) {
 
-    inner class BreakinNewsViewHolder(val binding: BreakingRvItemBinding) :
+    inner class BreakingNewsViewHolder(val binding: BreakingRvItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(article: Article) {
@@ -30,15 +29,15 @@ class BreakingNewsRvAdapter() :
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BreakinNewsViewHolder {
-        return BreakinNewsViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BreakingNewsViewHolder {
+        return BreakingNewsViewHolder(
             BreakingRvItemBinding.inflate(
                 LayoutInflater.from(parent.context)
             )
         )
     }
 
-    override fun onBindViewHolder(holder: BreakinNewsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BreakingNewsViewHolder, position: Int) {
         val result = getItem(position)
         result?.let {
             holder.bind(result)

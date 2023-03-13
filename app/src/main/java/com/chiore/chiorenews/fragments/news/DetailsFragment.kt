@@ -3,6 +3,7 @@ package com.chiore.chiorenews.fragments.news
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -71,9 +72,11 @@ class DetailsFragment : Fragment() {
                 }
 
                 icSave.setOnClickListener {
+//                    detailsData.isSaved = true
                     viewModel.saveNews(detailsData)
                     Snackbar.make(requireView(), "News is saved", Snackbar.LENGTH_SHORT)
                         .setAction("Undo") {
+//                            detailsData.isSaved = false
                             viewModel.deleteNews(detailsData)
                         }
                         .show()
@@ -93,5 +96,4 @@ class DetailsFragment : Fragment() {
 
         }
     }
-
 }

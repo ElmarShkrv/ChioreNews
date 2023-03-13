@@ -4,7 +4,7 @@ import com.chiore.chiorenews.data.local.NewsDao
 import com.chiore.chiorenews.data.model.Article
 import javax.inject.Inject
 
-class DetailsRepository @Inject constructor(
+class ReadLaterRepository @Inject constructor(
     private val newsDao: NewsDao,
 ) {
 

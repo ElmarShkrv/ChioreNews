@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.chiore.chiorenews.R
-import com.chiore.chiorenews.adapters.SearchNewsRvAdapter
+import com.chiore.chiorenews.adapters.NewsRvListAdapter
 import com.chiore.chiorenews.databinding.FragmentSearchBinding
 import com.chiore.chiorenews.util.DefaultItemDecorator
 import com.chiore.chiorenews.util.Resource
@@ -24,7 +24,7 @@ import kotlinx.coroutines.*
 class SearchFragment : Fragment() {
 
     private lateinit var binding: FragmentSearchBinding
-    private lateinit var searchNewsRvAdapter: SearchNewsRvAdapter
+    private lateinit var newsRvListAdapter: NewsRvListAdapter
     private val viewModel by viewModels<SearchViewModel>()
 
     val TAG = "SearchFragment"
@@ -41,7 +41,7 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        searchNewsRvAdapter = SearchNewsRvAdapter()
+        newsRvListAdapter = NewsRvListAdapter()
 
         if (binding.etSearch.requestFocus()) {
             (requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).toggleSoftInput(
@@ -80,7 +80,7 @@ class SearchFragment : Fragment() {
                     }
                     is Resource.Success -> {
                         response.data?.let { breakingNewsResponse ->
-                            searchNewsRvAdapter.submitList(breakingNewsResponse)
+                            newsRvListAdapter.submitList(breakingNewsResponse)
                         }
                     }
                     is Resource.Error -> {
@@ -97,7 +97,7 @@ class SearchFragment : Fragment() {
     }
 
     private fun searchNewsRv() {
-        binding.searchRv.adapter = searchNewsRvAdapter
+        binding.searchRv.adapter = newsRvListAdapter
         binding.searchRv.addItemDecoration(
             DefaultItemDecorator(
                 resources.getDimensionPixelSize(R.dimen.horizontal_margin_for_vertical),
