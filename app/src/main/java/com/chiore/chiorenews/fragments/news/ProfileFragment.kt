@@ -1,17 +1,23 @@
 package com.chiore.chiorenews.fragments.news
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.ImageDecoder
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
-import android.util.Log
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -19,39 +25,31 @@ import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.chiore.chiorenews.R
 import com.chiore.chiorenews.activities.LoginRegisterActivity
-import com.chiore.chiorenews.activities.NewsActivity
 import com.chiore.chiorenews.data.model.User
 import com.chiore.chiorenews.databinding.FragmentProfileBinding
 import com.chiore.chiorenews.dialog.setupBottomSheetDialog
-import com.chiore.chiorenews.util.Constants
 import com.chiore.chiorenews.util.Resource
-import com.chiore.chiorenews.util.shortToast
 import com.chiore.chiorenews.viewmodel.ProfileViewModel
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
+import java.io.IOException
 
 @AndroidEntryPoint
 class ProfileFragment : Fragment() {
 
-    val TAG = "ProfileFragment"
     private lateinit var binding: FragmentProfileBinding
     private val viewModel by viewModels<ProfileViewModel>()
-    private lateinit var imageActivityResultLauncher: ActivityResultLauncher<Intent>
+    private lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
+    private lateinit var permissionLauncher: ActivityResultLauncher<String>
 
-    private var imageUri: Uri? = null
+    var selectedPicture : Uri? = null
+    var selectedBitmap : Bitmap? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        imageActivityResultLauncher =
-            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-                imageUri = it.data?.data
-                Glide.with(this).load(imageUri).into(binding.ivProfile)
-            }
+        registerLauncher()
     }
 
     override fun onCreateView(
@@ -111,20 +109,129 @@ class ProfileFragment : Fragment() {
                 val lastName = etLastNameProfile.text.toString().trim()
                 val email = tvEmailProfile.text.toString().trim()
                 val user = User(firstName, lastName, email)
-                viewModel.updateUserInfo(user, imageUri)
+                viewModel.updateUserInfo(user, selectedPicture)
             }
         }
 
         binding.ivProfile.setOnClickListener {
-            val intent = Intent(Intent.ACTION_GET_CONTENT)
-            intent.type = "image/*"
-            imageActivityResultLauncher.launch(intent)
+            selectImage(it)
         }
 
         binding.tvUpdatePassword.setOnClickListener {
             setupBottomSheetDialog { }
         }
 
+    }
+
+    fun selectImage(view: View) {
+
+        activity?.let {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                if (ContextCompat.checkSelfPermission(
+                        requireActivity().applicationContext,
+                        Manifest.permission.READ_MEDIA_IMAGES
+                    ) != PackageManager.PERMISSION_GRANTED
+                ) {
+                    if (ActivityCompat.shouldShowRequestPermissionRationale(
+                            requireActivity(),
+                            Manifest.permission.READ_MEDIA_IMAGES
+                        )
+                    ) {
+                        Snackbar.make(
+                            view,
+                            "Permission needed for gallery",
+                            Snackbar.LENGTH_INDEFINITE
+                        ).setAction("Give Permission",
+                            View.OnClickListener {
+                                permissionLauncher.launch(Manifest.permission.READ_MEDIA_IMAGES)
+                            }).show()
+                    } else {
+                        permissionLauncher.launch(Manifest.permission.READ_MEDIA_IMAGES)
+                    }
+                } else {
+                    val intentToGallery =
+                        Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                    activityResultLauncher.launch(intentToGallery)
+
+                }
+            } else {
+                if (ContextCompat.checkSelfPermission(
+                        requireActivity().applicationContext,
+                        Manifest.permission.READ_EXTERNAL_STORAGE
+                    ) != PackageManager.PERMISSION_GRANTED
+                ) {
+                    if (ActivityCompat.shouldShowRequestPermissionRationale(
+                            requireActivity(),
+                            Manifest.permission.READ_EXTERNAL_STORAGE
+                        )
+                    ) {
+                        Snackbar.make(
+                            view,
+                            "Permission needed for gallery",
+                            Snackbar.LENGTH_INDEFINITE
+                        ).setAction("Give Permission",
+                            View.OnClickListener {
+                                permissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+                            }).show()
+                    } else {
+                        permissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+                    }
+                } else {
+                    val intentToGallery =
+                        Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                    activityResultLauncher.launch(intentToGallery)
+
+                }
+            }
+
+
+        }
+
+    }
+
+    private fun registerLauncher() {
+        activityResultLauncher = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) { result ->
+            if (result.resultCode == AppCompatActivity.RESULT_OK) {
+                val intentFromResult = result.data
+                if (intentFromResult != null) {
+                    selectedPicture = intentFromResult.data
+                    try {
+                        if (Build.VERSION.SDK_INT >= 28) {
+                            val source = ImageDecoder.createSource(
+                                requireActivity().contentResolver,
+                                selectedPicture!!
+                            )
+                            selectedBitmap = ImageDecoder.decodeBitmap(source)
+                            binding.ivProfile.setImageBitmap(selectedBitmap)
+                        } else {
+                            selectedBitmap = MediaStore.Images.Media.getBitmap(
+                                requireActivity().contentResolver,
+                                selectedPicture
+                            )
+                            binding.ivProfile.setImageBitmap(selectedBitmap)
+                        }
+                    } catch (e: IOException) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+        }
+        permissionLauncher = registerForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ) { result ->
+            if (result) {
+                //permission granted
+                val intentToGallery =
+                    Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                activityResultLauncher.launch(intentToGallery)
+            } else {
+                //permission denied
+                Toast.makeText(requireContext(), "Permisson needed!", Toast.LENGTH_LONG)
+                    .show()
+            }
+        }
     }
 
     private fun showUserInformation(data: User) {
