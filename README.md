@@ -3,8 +3,8 @@ News is a simple project to study and play with some android components, archite
 
 ## 🗄 Firebase API 🔥:
 * [Firebase Authentication](https://firebase.google.com/docs/auth) - Login , Registration and Forgot Password.
-* [Firebase FireStore](https://firebase.google.com/docs/firestore) - Stores and queries users , products , cart items and order data.
-* [Firebase Storage](https://firebase.google.com/docs/storage) - Stores user profile pictures and product images.
+* [Firebase FireStore](https://firebase.google.com/docs/firestore) - Stores and queries users data.
+* [Firebase Storage](https://firebase.google.com/docs/storage) - Stores user profile pictures.
 
 ## Tech Stacks 🛠️
 * MVVM architecture
@@ -17,6 +17,7 @@ News is a simple project to study and play with some android components, archite
   * [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
   * [Navigation component](https://developer.android.com/guide/navigation)
 * [Glide](https://github.com/bumptech/glide)
+* [Kotlin flows](https://developer.android.com/kotlin/flow)
 * [Coroutine](https://developer.android.com/kotlin/coroutines)
 
 ## Screenshots 📷
@@ -50,6 +51,4 @@ News is a simple project to study and play with some android components, archite
 |<img src="https://user-images.githubusercontent.com/105628110/194262290-48e17e0c-9102-45e7-8c83-feb0eb47d6de.png" width="250" height="500"/>|
 
 </br>
-
-UI idea from [enginebai](https://github.com/enginebai/MovieHunt)
 
