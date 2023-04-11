@@ -17,7 +17,7 @@ News is a simple project to study and play with some android components, archite
   * [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
   * [Navigation component](https://developer.android.com/guide/navigation)
 * [Glide](https://github.com/bumptech/glide)
-* [Kotlin flows](https://developer.android.com/kotlin/flow)
+* [Kotlinflows](https://developer.android.com/kotlin/flow)
 * [Coroutine](https://developer.android.com/kotlin/coroutines)
 
 ## Screenshots 📷
