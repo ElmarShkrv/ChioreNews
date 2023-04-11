@@ -1,7 +1,7 @@
 # # News-App
 News is a simple project to study and play with some android components, architecture and tools for Android development.
 
-🗄 Firebase API 🔥:
+## 🗄 Firebase API 🔥:
 * [Firebase Authentication](https://firebase.google.com/docs/auth) - Login , Registration and Forgot Password.
 * [Firebase FireStore](https://firebase.google.com/docs/firestore) - Stores and queries users , products , cart items and order data.
 * [Firebase Storage](https://firebase.google.com/docs/storage) - Stores user profile pictures and product images.
