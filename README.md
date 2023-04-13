@@ -20,11 +20,12 @@ News is a simple project to study and play with some android components, archite
 * [Kotlin flows](https://developer.android.com/kotlin/flow)
 * [Coroutine](https://developer.android.com/kotlin/coroutines)
 
+
 ## Screenshots 📷
 
-| Home | Home |
-| ---- | ---- |
-|<img src="https://user-images.githubusercontent.com/105628110/194260019-31f353d4-56cb-4e47-a195-bf4fc4974726.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/194260155-96ae0b9d-87a0-4f3b-bcd4-c8e9911b92c6.png" width="250" height="500"/>
+| Login | Register | Forgot Password |
+| ----- | -------- | --------------- |
+|<img src="https://user-images.githubusercontent.com/105628110/231798224-2045cb32-dc4f-4108-b916-d25baa70153f.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/231798396-fcb4a730-d70d-4a50-8395-b78fa82df2fc.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/231798591-96f05c06-1852-4219-92c2-4fdd47266fc9.png" width="250" height="500"/>
 
 </br>
 
