@@ -27,17 +27,18 @@ News is a simple project to study and play with some android components, archite
 
 
 
+
 ## Screenshots 📷
 
 | Login | Register | Forgot password |
 | ----- | -------- | --------------- |
-|<img src="https://user-images.githubusercontent.com/105628110/231798224-2045cb32-dc4f-4108-b916-d25baa70153f.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/231799294-df685238-847b-4d5f-a8c5-8d7bb8c7ef38.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/231799337-bb6f0217-dc5a-4a12-93ca-2ff468d1aee8.png" width="250" height="500"/>
+|<img src="https://user-images.githubusercontent.com/105628110/231798224-2045cb32-dc4f-4108-b916-d25baa70153f.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/231800076-66613c67-a97d-44db-8f6c-ee0c7cd1afeb.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/231799337-bb6f0217-dc5a-4a12-93ca-2ff468d1aee8.png" width="250" height="500"/>
 
 </br>
 
 | Home | Save | Profile |
 | ---- | ---- | ------- |
-|<img src="https://user-images.githubusercontent.com/105628110/231799251-d83471e0-224d-4acc-8e81-b9a908b226ad.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/231798591-96f05c06-1852-4219-92c2-4fdd47266fc9.png" width="250" height="500"/><img src="https://user-images.githubusercontent.com/105628110/231798591-96f05c06-1852-4219-92c2-4fdd47266fc9.png" width="250" height="500"/>
+|<img src="https://user-images.githubusercontent.com/105628110/231800431-5c01b2b8-25b5-449d-9f7d-b61ff3676877.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/231800445-f7c8206e-443a-40a7-8440-2348025a12c9.png" width="250" height="500"/><img src="https://user-images.githubusercontent.com/105628110/231800459-a1b957af-0635-4008-b140-a80adc0a53ff.png" width="250" height="500"/>
 
 </br>
 
