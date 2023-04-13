@@ -21,17 +21,23 @@ News is a simple project to study and play with some android components, archite
 * [Coroutine](https://developer.android.com/kotlin/coroutines)
 
 
+![HomeFragment]()
+![saveFragment]()
+![ProfileFragment]()
+
+
+
 ## Screenshots 📷
 
-| Login | Register | Forgot Password |
+| Login | Register | Forgot password |
 | ----- | -------- | --------------- |
-|<img src="https://user-images.githubusercontent.com/105628110/231798224-2045cb32-dc4f-4108-b916-d25baa70153f.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/231798396-fcb4a730-d70d-4a50-8395-b78fa82df2fc.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/231798591-96f05c06-1852-4219-92c2-4fdd47266fc9.png" width="250" height="500"/>
+|<img src="https://user-images.githubusercontent.com/105628110/231798224-2045cb32-dc4f-4108-b916-d25baa70153f.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/231799294-df685238-847b-4d5f-a8c5-8d7bb8c7ef38.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/231799337-bb6f0217-dc5a-4a12-93ca-2ff468d1aee8.png" width="250" height="500"/>
 
 </br>
 
-| See All |
-| ------- |
-|<img src="https://user-images.githubusercontent.com/105628110/194260453-b78657a5-e1bc-4224-bf6b-f14763ab9aaf.png" width="250" height="500"/>|
+| Home | Save | Profile |
+| ---- | ---- | ------- |
+|<img src="https://user-images.githubusercontent.com/105628110/231799251-d83471e0-224d-4acc-8e81-b9a908b226ad.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/231798591-96f05c06-1852-4219-92c2-4fdd47266fc9.png" width="250" height="500"/><img src="https://user-images.githubusercontent.com/105628110/231798591-96f05c06-1852-4219-92c2-4fdd47266fc9.png" width="250" height="500"/>
 
 </br>
 
