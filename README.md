@@ -21,13 +21,6 @@ News is a simple project to study and play with some android components, archite
 * [Coroutine](https://developer.android.com/kotlin/coroutines)
 
 
-![HomeFragment]()
-![saveFragment]()
-![ProfileFragment]()
-
-
-
-
 ## Screenshots 📷
 
 | Login | Register | Forgot password |
