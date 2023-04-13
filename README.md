@@ -25,7 +25,7 @@ News is a simple project to study and play with some android components, archite
 
 | Login | Register | Forgot password |
 | ----- | -------- | --------------- |
-|<img src="https://user-images.githubusercontent.com/105628110/231798224-2045cb32-dc4f-4108-b916-d25baa70153f.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/231800076-66613c67-a97d-44db-8f6c-ee0c7cd1afeb.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/231799337-bb6f0217-dc5a-4a12-93ca-2ff468d1aee8.png" width="250" height="500"/>
+|<img src="https://user-images.githubusercontent.com/105628110/231798224-2045cb32-dc4f-4108-b916-d25baa70153f.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/231800076-66613c67-a97d-44db-8f6c-ee0c7cd1afeb.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/231801622-9bc3f7f4-1e6b-4672-b554-f2de10c4dbac.png" width="250" height="500"/>
 
 </br>
 
@@ -35,9 +35,10 @@ News is a simple project to study and play with some android components, archite
 
 </br>
 
-| Movie Detail | Movie Detail | Movie Detail |
-| ------------ | ------------ | ------------ |
-|<img src="https://user-images.githubusercontent.com/105628110/194260905-4d16899e-7d0e-40a7-885d-c2d5b1178c12.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/194261045-ffc4e4e2-2e48-4e6c-ba11-6ef86b756079.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/194261439-23754299-ea3f-44b1-97ea-9847e8f8ce4f.png" width="250" height="500"/>
+
+| Search | Category | Details |
+| ------ | -------- | ------- |
+|<img src="https://user-images.githubusercontent.com/105628110/231802384-cfe0ecbc-415e-42ee-b234-0c6ff0310a5f.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/231802410-5069e556-3468-48b4-9b41-82d4a5944350.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/231802434-71cc5348-d02c-408a-808b-6295f2868474.png" width="250" height="500"/>
 
 </br>
 
