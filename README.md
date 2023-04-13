@@ -35,22 +35,15 @@ News is a simple project to study and play with some android components, archite
 
 </br>
 
-
 | Search | Category | Details |
 | ------ | -------- | ------- |
 |<img src="https://user-images.githubusercontent.com/105628110/231802384-cfe0ecbc-415e-42ee-b234-0c6ff0310a5f.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/231802410-5069e556-3468-48b4-9b41-82d4a5944350.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/105628110/231802434-71cc5348-d02c-408a-808b-6295f2868474.png" width="250" height="500"/>
 
 </br>
 
-| Search |
-| ------ |
-|<img src="https://user-images.githubusercontent.com/105628110/194261916-09b27ebd-0192-4199-b5d3-f86846ffc252.png" width="250" height="500"/>|
-
-</br>
-
-| Save |
-| ---- |
-|<img src="https://user-images.githubusercontent.com/105628110/194262290-48e17e0c-9102-45e7-8c83-feb0eb47d6de.png" width="250" height="500"/>|
+| WebView |
+| ------- |
+|<img src="https://user-images.githubusercontent.com/105628110/231803103-58a7b49e-aaa7-43cb-9ca9-e9ee72c50e3c.png" width="250" height="500"/>|
 
 </br>
 
